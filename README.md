@@ -1,2 +1,2 @@
 # hivehapp
-Hive Happ is the happy app to keep your hive running smoothly and equiptablly. 
+Hive Happ is the household management app to keep your hive equitable and happy.
