@@ -4,11 +4,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { Login } from '@hivehapp/models';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'login-form',
+  selector: 'sign-in',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,15 +17,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatButtonModule,
   ],
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss'],
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss'],
 })
-export class LoginFormComponent implements OnInit {
-  @ViewChild('loginForm') form: NgForm;
+export class SignInComponent implements OnInit {
+  @ViewChild('signInForm') form: NgForm;
 
-  model: Login;
+  model;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.model = {
       emailAddress: '',
       password: '',

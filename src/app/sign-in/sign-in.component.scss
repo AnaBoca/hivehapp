@@ -1,0 +1,18 @@
+
+
+
+mat-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-shadow:5px 5px 15px 5px rgb(46 30 58)
+}
+
+
+
+mat-form-field {
+  display: block;
+}
