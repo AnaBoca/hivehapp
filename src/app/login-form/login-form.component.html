@@ -1,34 +1,54 @@
-<form (ngSubmit)="onSave()" #loginForm="ngForm">
-  <div>
-    <mat-card>
-      <mat-card-title>Buzz on In!</mat-card-title>
-      <mat-card-content>
-        <p>
-          <mat-form-field>
-            <input
-              name="username"
-              type="text"
-              matInput
-              placeholder="Username"
-            />
-          </mat-form-field>
-        </p>
+<div class="background-img">
+  <mat-card>
+    <mat-card-header
+      class="flex justify-center justify-items-center items-center my-5"
+    >
+      <mat-card-title>
+        <img src="../../assets/happy-bee.png" width="45px" class="pb-4" />
+      </mat-card-title>
+      <mat-card-subtitle> Buzz In! </mat-card-subtitle>
+    </mat-card-header>
 
-        <p>
-          <mat-form-field>
-            <input
-              type="password"
-              matInput
-              placeholder="Password"
-              name="password"
-            />
-          </mat-form-field>
-        </p>
+    <mat-card-content>
+      <form (ngSubmit)="onSave()" #loginForm="ngForm">
+        <mat-form-field>
+          <mat-label>Email Address</mat-label>
 
-        <div class="button">
-          <button type="submit" mat-button>Login</button>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</form>
+          <input
+            [(ngModel)]="model.emailAddress"
+            #email="ngModel"
+            name="email"
+            type="text"
+            placeholder="email@email.com"
+            matInput
+            required
+          />
+
+          <mat-error></mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+
+          <input
+            [(ngModel)]="model.password"
+            #password="ngModel"
+            name="password"
+            type="password"
+            placeholder="Password"
+            matInput
+            required
+          />
+        </mat-form-field>
+
+        <mat-error></mat-error>
+
+        <mat-card-actions align="end">
+          <button mat-raised-button color="accent" type="submit" mat-button>
+            Login
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -20,7 +20,10 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@hivehapp/models": ["models/src/index.ts"]
+    }
   },
   "files": [],
   "include": [],
