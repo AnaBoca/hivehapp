@@ -1,1 +1,64 @@
-<p>sign-up works!</p>
+<mat-card>
+  <mat-card-header class="flex justify-center my-5">
+    <mat-card-title>
+      <img src="../../assets/happy-bee.png" width="45px" class="pb-4 mx-auto" />
+    </mat-card-title>
+    <mat-card-subtitle> Get your busy bee self buzzing! </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form (ngSubmit)="onSave()" #signUpForm="ngForm">
+      <mat-form-field>
+        <mat-label>Email Address</mat-label>
+
+        <input
+          [(ngModel)]="model.emailAddress"
+          #email="ngModel"
+          name="email"
+          type="text"
+          placeholder="email@email.com"
+          matInput
+          required
+        />
+
+        <mat-error></mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+
+        <input
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          name="password"
+          type="password"
+          placeholder="Password"
+          matInput
+          required
+        />
+      </mat-form-field>
+
+      <mat-error></mat-error>
+
+      <mat-card-actions>
+        <button mat-raised-button color="accent" type="submit" mat-button>
+          Login
+        </button>
+      </mat-card-actions>
+      <mat-card-actions class="mb-5">
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          mat-button
+          (click)="authService.GoogleAuth()"
+        >
+          Login with <i class="fa-brands fa-google"></i>
+        </button>
+      </mat-card-actions>
+      <mat-card-subtitle routerLink="/sign-in">
+        Already have an account?
+      </mat-card-subtitle>
+    </form>
+  </mat-card-content>
+</mat-card>
