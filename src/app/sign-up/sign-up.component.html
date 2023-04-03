@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="mat-card__custom">
   <mat-card-header class="flex justify-center my-5">
     <mat-card-title>
       <img src="../../assets/happy-bee.png" width="45px" class="pb-4 mx-auto" />
@@ -8,7 +8,7 @@
 
   <mat-card-content>
     <form (ngSubmit)="onSave()" #signUpForm="ngForm">
-      <mat-form-field>
+      <mat-form-field class="!block">
         <mat-label>Email Address</mat-label>
 
         <input
@@ -24,7 +24,7 @@
         <mat-error></mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="!block">
         <mat-label>Password</mat-label>
 
         <input
