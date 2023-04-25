@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '@hivehapp/auth';
 
 @Component({
   selector: 'dashboard',
@@ -8,4 +9,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {}
+export class DashboardComponent implements OnInit {
+  constructor(public authService: AuthService) {}
+
+  ngOnInit(): void {
+    console.log('dashboard');
+  }
+}
