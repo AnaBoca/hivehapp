@@ -1,12 +1,17 @@
 <!-- Top navigation -->
+<mat-toolbar
+  color="primary"
+  class="!py-10 shadow-[5px_5px_15px_5px_rgba(46,30,58)]"
+>
+  <img
+    src="../../assets/happy-bee.png"
+    alt="HiveHapp Logo"
+    width="50px"
+    class="mr-5"
+  /><span class="inset-x-0 pt-3">hivehapp</span>
+</mat-toolbar>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
-    <img
-      class="brand-logo"
-      src="assets/logo-positronx-white.svg"
-      alt="positronX.io Logo"
-    />
-  </a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0"> </a>
 </nav>
 <!-- Sidebar navigation -->
 <div class="container-fluid">
@@ -16,7 +21,7 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active">
-              <i class="fas fa-user"></i>User Profile
+              <mat-icon> person_pin</mat-icon>User Profile
             </a>
           </li>
           <!-- Calling SignOut() Api from AuthService -->
@@ -39,11 +44,12 @@
           <div class="col-md-12">
             <div class="media">
               <img
-                class="align-self-start mr-5 img-thumbnail rounded-circle"
+                class="rounded-full shadow-[5px_5px_15px_5px_rgba(46,30,58)]"
                 src="{{
-                  user.photoURL ? user.photoURL : '/assets/dummy-user.png'
+                  user.photoURL ? user.photoURL : '../../assets/dummy-user.png'
                 }}"
                 alt="{{ user.displayName }}"
+                width="200px"
               />
               <div class="media-body">
                 <h1>
