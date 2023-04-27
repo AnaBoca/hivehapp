@@ -40,7 +40,6 @@ export class SignInComponent implements OnInit {
       this.form.controls['email'].value,
       this.form.controls['password'].value
     );
-    console.log('ON SAVE');
   }
 }
 

@@ -1,15 +1,32 @@
 <!-- Top navigation -->
+
 <mat-toolbar
   color="primary"
-  class="!py-10 shadow-[5px_5px_15px_5px_rgba(46,30,58)]"
+  class="!py-10 shadow-[5px_5px_15px_5px_rgba(46,30,58)] flex justify-start"
 >
+  <button (click)="snav.toggle()" mat-icon-button class="mx-5">
+    <mat-icon>menu</mat-icon>
+  </button>
   <img
     src="../../assets/happy-bee.png"
     alt="HiveHapp Logo"
     width="50px"
-    class="mr-5"
-  /><span class="inset-x-0 pt-3">hivehapp</span>
+    class="relative bottom-2 mr-3"
+  /><span>hivehapp</span>
 </mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #snav>
+    <button mat-button class="menu-button">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">Main content here!</div>
+    </mat-sidenav-content>
+  </mat-sidenav>
+</mat-sidenav-container>
+
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-sm-3 col-md-2 mr-0"> </a>
 </nav>

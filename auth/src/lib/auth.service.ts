@@ -44,8 +44,6 @@ export class AuthService {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['dashboard']);
-
-            console.log('DASHBOARD 1');
           }
         });
       })
@@ -93,16 +91,14 @@ export class AuthService {
   // Returns true when user is logged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    const result = user !== null && user.emailVerified !== false ? true : false;
-    console.log('IS LOGGED IN', result);
-    return result;
+
+    return user !== null && user.emailVerified !== false ? true : false;
   }
 
   // Sign in with Google
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       this.router.navigate(['dashboard']);
-      console.log('DASHBOARD 2');
     });
   }
 
@@ -112,7 +108,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.router.navigate(['dashboard']);
-        console.log('DASHBOARD 3');
+
         this.SetUserData(result.user);
       })
       .catch((error) => {

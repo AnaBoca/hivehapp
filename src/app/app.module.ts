@@ -21,7 +21,6 @@ import { AuthService } from 'auth/src/lib/auth.service';
     BrowserModule,
     RouterModule.forRoot(appRoutes, {
       initialNavigation: 'enabledBlocking',
-      enableTracing: true,
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
