@@ -7,6 +7,8 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ReadableErrorMessage } from './readable-error-message.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +19,9 @@ export class AuthService {
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private _snackBar: MatSnackBar,
+    private readbleErrorMessage: ReadableErrorMessage
   ) {
     /* 
       Saving user data in Local Storage when logged in 
@@ -48,7 +52,11 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        this._snackBar.open(
+          this.readbleErrorMessage.getMessageFromCode(error)!,
+          'Close',
+          { duration: 5000 }
+        );
       });
   }
 
@@ -57,13 +65,19 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificationMail() function when new user sign 
-        up and returns promise */
+        /* 
+        Call the SendVerificationMail() function 
+        when new user sign up and returns promise 
+        */
         this.SendVerificationMail();
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        this._snackBar.open(
+          this.readbleErrorMessage.getMessageFromCode(error)!,
+          'Close',
+          { duration: 5000 }
+        );
       });
   }
 
@@ -81,10 +95,18 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        this._snackBar.open(
+          'Password reset email sent, check your inbox.',
+          'Close',
+          { duration: 5000 }
+        );
       })
       .catch((error) => {
-        window.alert(error);
+        this._snackBar.open(
+          this.readbleErrorMessage.getMessageFromCode(error)!,
+          'Close',
+          { duration: 5000 }
+        );
       });
   }
 
@@ -112,7 +134,11 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error);
+        this._snackBar.open(
+          this.readbleErrorMessage.getMessageFromCode(error)!,
+          'Close',
+          { duration: 5000 }
+        );
       });
   }
 

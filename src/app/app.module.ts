@@ -14,6 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from 'auth/src/lib/auth.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { AuthService } from 'auth/src/lib/auth.service';
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    MatSnackBarModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

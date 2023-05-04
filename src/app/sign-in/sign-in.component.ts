@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { AuthService } from 'auth/src/lib/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'sign-in',
@@ -17,6 +18,7 @@ import { AuthService } from 'auth/src/lib/auth.service';
     FormsModule,
     MatInputModule,
     MatButtonModule,
+    RouterModule,
   ],
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],

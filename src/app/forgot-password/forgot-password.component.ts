@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { AuthService } from 'auth/src/lib/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'forgot-password',
@@ -17,6 +18,7 @@ import { AuthService } from 'auth/src/lib/auth.service';
     MatInputModule,
     MatButtonModule,
     FormsModule,
+    RouterModule,
   ],
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss'],
@@ -31,14 +33,10 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.model = {
       emailAddress: '',
-      password: '',
     };
   }
 
   onSave() {
-    this.authService.SignIn(
-      this.form.controls['email'].value,
-      this.form.controls['password'].value
-    );
+    this.authService.ForgotPassword(this.form.controls['email'].value);
   }
 }

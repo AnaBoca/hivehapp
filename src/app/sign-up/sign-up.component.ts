@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { AuthService } from 'auth/src/lib/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'sign-up',
@@ -17,6 +18,7 @@ import { AuthService } from 'auth/src/lib/auth.service';
     MatInputModule,
     MatButtonModule,
     FormsModule,
+    RouterModule,
   ],
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
@@ -36,7 +38,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSave() {
-    this.authService.SignIn(
+    this.authService.SignUp(
       this.form.controls['email'].value,
       this.form.controls['password'].value
     );
