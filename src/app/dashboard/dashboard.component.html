@@ -1,94 +1,33 @@
-<!-- Top navigation -->
+<a class="nav-link active"> <mat-icon> person_pin</mat-icon>User Profile </a>
+<a class="nav-link" (click)="authService.SignOut()">
+  <mat-icon>logout</mat-icon>Log out
+</a>
 
-<mat-toolbar
-  color="primary"
-  class="!py-10 shadow-[5px_5px_15px_5px_rgba(46,30,58)] flex justify-start"
->
-  <button (click)="snav.toggle()" mat-icon-button class="mx-5">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <img
-    src="../../assets/happy-bee.png"
-    alt="HiveHapp Logo"
-    width="50px"
-    class="relative bottom-2 mr-3"
-  /><span>hivehapp</span>
-</mat-toolbar>
+<!-- Main content -->
+<main>
+  <h1>User Profile</h1>
 
-<mat-sidenav-container>
-  <mat-sidenav #snav>
-    <button mat-button class="menu-button">
-      <mat-icon>info</mat-icon>
-      <span>About</span>
-    </button>
-    <mat-sidenav-content>
-      <div class="content mat-elevation-z8">Main content here!</div>
-    </mat-sidenav-content>
-  </mat-sidenav>
-</mat-sidenav-container>
+  <!-- Show user data when logged in -->
+  <div *ngIf="authService.userData as user">
+    <img
+      class="rounded-full shadow-[5px_5px_15px_5px_rgba(46,30,58)]"
+      src="{{ user.photoURL ? user.photoURL : '../../assets/dummy-user.png' }}"
+      alt="{{ user.displayName }}"
+      width="200px"
+    />
 
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0"> </a>
-</nav>
-<!-- Sidebar navigation -->
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active">
-              <mat-icon> person_pin</mat-icon>User Profile
-            </a>
-          </li>
-          <!-- Calling SignOut() Api from AuthService -->
-          <li class="nav-item">
-            <a class="nav-link" (click)="authService.SignOut()">
-              <i class="fas fa-sign-out-alt"></i>Log out
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- Main content -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="inner-adjust">
-        <div class="pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">User Profile</h1>
-        </div>
-        <!-- Show user data when logged in -->
-        <div class="row" *ngIf="authService.userData as user">
-          <div class="col-md-12">
-            <div class="media">
-              <img
-                class="rounded-full shadow-[5px_5px_15px_5px_rgba(46,30,58)]"
-                src="{{
-                  user.photoURL ? user.photoURL : '../../assets/dummy-user.png'
-                }}"
-                alt="{{ user.displayName }}"
-                width="200px"
-              />
-              <div class="media-body">
-                <h1>
-                  Hello:
-                  <strong>{{
-                    user.displayName ? user.displayName : 'User'
-                  }}</strong>
-                </h1>
-                <p>
-                  User ID: <strong>{{ user.uid }}</strong>
-                </p>
-                <p>
-                  Email: <strong>{{ user.email }}</strong>
-                </p>
-                <p>
-                  Email Verified: <strong>{{ user.emailVerified }}</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <h1>
+      Hello:
+      <strong>{{ user.displayName ? user.displayName : 'User' }}</strong>
+    </h1>
+    <p>
+      User ID: <strong>{{ user.uid }}</strong>
+    </p>
+    <p>
+      Email: <strong>{{ user.email }}</strong>
+    </p>
+    <p>
+      Email Verified: <strong>{{ user.emailVerified }}</strong>
+    </p>
   </div>
-</div>
+</main>

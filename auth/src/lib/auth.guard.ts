@@ -9,6 +9,7 @@ export class AuthGuard {
   constructor(public authService: AuthService, public router: Router) {}
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (this.authService.isLoggedIn !== true) {
+      console.log('authguard hit!');
       this.router.navigate(['sign-in']);
     }
     return true;
